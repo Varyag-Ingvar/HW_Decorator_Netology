@@ -1,0 +1,15 @@
+Function run Date-Time: 2021-12-24 16:37:10.723283
+Function name: rectangle_perimeter
+Function arguments: ((28, 35), {})
+Function execution result: 126
+-------------------------------------
+Function run Date-Time: 2021-12-24 16:37:20.896158
+Function name: rectangle_perimeter
+Function arguments: ((125, 65), {})
+Function execution result: 380
+-------------------------------------
+Function run Date-Time: 2021-12-24 16:37:28.415784
+Function name: rectangle_area
+Function arguments: ((25, 325), {})
+Function execution result: 8125
+-------------------------------------
