@@ -1,5 +1,7 @@
 from datetime import datetime
 
+log_file_path = 'log_some_func.txt'
+
 
 def get_log(function):
     def new_function(*args, **kwargs):
@@ -13,8 +15,24 @@ def get_log(function):
                        f'Function execution result: {result}\n'
                        '-------------------------------------\n')
         return result
-
     return new_function
+
+
+def get_log_1(parameter):
+    def decor(function):
+        def new_function(*args, **kwargs):
+            run_date_time = datetime.now()
+            function_name = function.__name__
+            result = function(*args, **kwargs)
+            with open('log_some_func.txt', 'a', encoding='utf-8') as file:
+                file.write(f'Function run Date-Time: {run_date_time}\n'
+                           f'Function name: {function_name}\n'
+                           f'Function arguments: {args, kwargs}\n'
+                           f'Function execution result: {result}\n'
+                           '-------------------------------------\n')
+            return result
+        return new_function
+    return decor
 
 
 @get_log
@@ -23,7 +41,7 @@ def rectangle_area(length, width):
     return area
 
 
-@get_log
+@get_log_1(parameter=log_file_path)
 def rectangle_perimeter(length, width):
     perimeter = (length + width) * 2
     return perimeter
